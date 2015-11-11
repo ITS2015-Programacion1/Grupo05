@@ -7,7 +7,7 @@ pilas.fondos.Tarde()
 def ayuda():
 	pilas.fondos.Tarde()
 	menu.eliminar()
-	mi_texto = """    Flappy Barbie es un juego que consiste en un
+	mi_texto = """    Flappy Bird es un juego que consiste en un
 				android que tiene que ir volando entre filas 
 				de tuberias verdes sin tocarse, la escena 
 				se va desplazando lateralmente."""
