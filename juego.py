@@ -45,4 +45,19 @@ class Tubo(pilasengine.actores.Actor):
 	    tubo2 = Tubo(pilas)
 	    tubo2.rotacion = 180
 	    tubo2.y = tubo1.y - (tubo1.alto / 2) * 2 - 100
+	    
+pilas = pilasengine.iniciar(ancho=288, alto=511)
+# Crear fondo 1 con posicion en X de 288 (no visible)
+fondo55 = FondoConMovimiento(pilas)
+fondo55.x = 288
+# Crear fondo 2
+fondo22 = FondoConMovimiento(pilas)
+# Crear fondo 1 con posicion en X de 288 (no visible)
+fondo = FondoConMovimiento(pilas)
+fondo.x = 288
 
+# Crear fondo 2
+fondo2 = FondoConMovimiento(pilas)
+fondo3 = FondoConMovimiento(pilas)
+# llamar a la funcion crear_tubos cada 2.5 segundos
+pilas.tareas.siempre(4, crear_tubos)
