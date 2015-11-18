@@ -38,13 +38,14 @@ class Tubo(pilasengine.actores.Actor):
         # Si el tubo llega al al borde izquierdo de la pantalla entonces lo eliminamos
         if self.x + self.ancho <= -144:
              self.eliminar()
-    def crear_tubos():
-		#funcion que sera llamada como una tarea
-	    tubo1 = Tubo(pilas)
-	    #Tubo de abajo
-	    tubo2 = Tubo(pilas)
-	    tubo2.rotacion = 180
-	    tubo2.y = tubo1.y - (tubo1.alto / 2) * 2 - 100
+def crear_tubos():
+	#funcion que sera llamada como una tarea
+    tubo1 = Tubo(pilas)
+    #Tubo de abajo
+    tubo2 = Tubo(pilas)
+    tubo2.rotacion = 180
+    tubo2.y = tubo1.y - (tubo1.alto / 2) * 2 - 100
+
 
 pilas = pilasengine.iniciar(ancho=288, alto=511)
 # Crear fondo 1 con posicion en X de 288 (no visible)
@@ -101,3 +102,33 @@ teclas = {
         }
 mi_control = pilas.control.Control(teclas)
 
+class FlappyConControles(pilasengine.actores.Actor):
+	#Clase que define todos los aspectos del Actor
+    def iniciar(self):
+    	#Define la imagen que se utilizara para el actor"
+        self.imagen = pilas.imagenes.cargar_grilla("flappybird.png", 3)
+        #Define la escala de tamaño del actor
+        self.escala = 1.2
+        #Define la posicion X en la cual se posicionara el actor
+        self.x = -80
+        #Define la posicion Y en la cual se posicionara el actor
+        self.y = -200
+        #Define la posicion X en la cual se posicionara la camara
+        pilas.camara.x = [0]
+        self.saltando = False
+
+    def actualizar(self):
+        self.x += 0
+        #Define cuanto avanzara el actor
+        self.imagen.avanzar()
+        #Define cuanto avanzara la camara
+        pilas.camara.x += .001
+        #Define los controles
+        if mi_control.arriba:
+            self.y +=1
+            if not self.saltando:
+                self.hacer("SaltarUnaVez")
+FlappyConControles(pilas)
+pilas.comportamientos.vincular(SaltarUnaVez)
+
+pilas.ejecutar()

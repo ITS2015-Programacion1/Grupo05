@@ -1,36 +1,28 @@
 #Historia
 ##Explicacion del Proyecto
-Nuestro proyecto, trata sobre la historia de un Android el cual, ha salido de su galaxia hacia lo desconocido y se ha perdido en la inmensidad del espacio exterior y de todo lo conocido para su especie, para retornar a la seguridad de su aldea, debera sortear los diversos obstáculos que se le presentan a su paso como lo son Chupetines, tubos, marcianos entre otros.
+Nuestro proyecto, trata sobre la historia de un FlappyBird el cual, ha salido de su casa hacia lo desconocido y se ha perdido en la inmensidad del mundo exterior y de todo lo conocido para él, para retornar a la seguridad de su casa, debera sortear los diversos obstáculos que se le presentan a su paso como lo son los Tubos.
 
 #Versiones
-##Release 1.0
+##Release 0.1
 
-*Ajustar y editar la gravedad para darle estetica y dificultdad
+*Crear el Menu
 
-*Dotar de Salto 
+*Dotar el Juego de Fondo 
 
-*Dotar de movimiento constante
+*Dotar de Tubos
 
-*Crear un mapa 
+*Dotar de movimiento constante al Fondo 
 
-*Crear los Obstáculos con los cuales colisionara con el Android 
+*Generar que aparezcan aleatoriamente los Tubos
 
-*Crear un menu
+#Crear las colisiones con los Tubos
 
-##Release 2.0
+##Release 0.2
 
-*Colocar puntaje
+*Dotar de constante salto al FlappyBird
 
-*Crear nuestro propio actor(Android)
+*Dotar de puntuacion al juego
 
-*Crear nuestros obstaculos
-
-*Dotar de habilidades especiales
-
-##Release 3.0
+##Release 0.3
 
 *Correccion de errores
-
-*Generar un mapa ilimitado e infinito
-
-*Crear y colocar efectos
