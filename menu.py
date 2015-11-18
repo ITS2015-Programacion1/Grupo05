@@ -1,30 +1,27 @@
 # coding: utf-8
 import pilasengine
-
 pilas = pilasengine.iniciar()
-pilas.fondos.Tarde()
-
-def ayuda():
-	pilas.fondos.Tarde()
-	menu.eliminar()
-	mi_texto = """    Flappy Bird es un juego que consiste en un
-				android que tiene que ir volando entre filas 
-				de tuberias verdes sin tocarse, la escena 
-				se va desplazando lateralmente."""
-	texto = pilas.actores.Texto(mi_texto, y=150)
-
-def salir_del_juego():
-	pilas.terminar()
-	menu.eliminar()
-
 def iniciar_juego():
-	pilas.fondos.Noche()
-	menu.eliminar()
+	pilas.escenas.Juego()
 
-menu = pilas.actores.Menu(
-        [
-            ('Iniciar juego', iniciar_juego),		
-            ('Ayuda', ayuda),			
-            ('Salir', 	salir_del_juego),
-        ])
+def como_jugar():
+    pilas.escenas.Instrucciones()
+	
+def salir_del_juego():
+    pilas.terminar()
+
+class Juego(pilasengine.escenas.Escena):
+    def iniciar(self):
+        pilas.fondo.Noche()    
+
+class Instrucciones(pilasengine.escenas.Escena):
+    def iniciar(self):
+        pilas.escenas.Normal()
+        pilas.fondo.Noche()
+
+pilas.escenas.vincular(Juego)
+pilas.escenas.vincular(Instrucciones)
+MenuPrincipal = pilas.fondos.Fondo()
+MenuPrincipal.imagen = pilas.imagenes.cargar("fondomenu.png")
+pilas.actores.Menu([('Iniciar juego', iniciar_juego),('Como jugar', como_jugar),('salir', salir_del_juego),])
 pilas.ejecutar()
