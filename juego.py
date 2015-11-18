@@ -100,4 +100,33 @@ teclas = {
             pilas.simbolos.ESPACIO: 'boton',
         }
 mi_control = pilas.control.Control(teclas)
+class FlappyConControles(pilasengine.actores.Actor):
+    #Clase que define todos los aspectos del Actor
+    def iniciar(self):
+        #Define la imagen que se utilizara para el actor"
+        self.imagen = pilas.imagenes.cargar_grilla("flappybird.png", 3)
+        #Define la escala de tamaño del actor
+        self.escala = 1.2
+        #Define la posicion X en la cual se posicionara el actor
+        self.x = -80
+        #Define la posicion Y en la cual se posicionara el actor
+        self.y = -200
+        #Define la posicion X en la cual se posicionara la camara
+        pilas.camara.x = [0]
+        self.saltando = False
 
+    def actualizar(self):
+        self.x += 0
+        #Define cuanto avanzara el actor
+        self.imagen.avanzar()
+        #Define cuanto avanzara la camara
+        pilas.camara.x += .001
+        #Define los controles
+        if mi_control.arriba:
+            self.y +=1
+            if not self.saltando:
+                self.hacer("SaltarUnaVez")
+FlappyConControles(pilas)
+pilas.comportamientos.vincular(SaltarUnaVez)
+
+pilas.ejecutar()
