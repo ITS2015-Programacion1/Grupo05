@@ -1,4 +1,3 @@
-# coding: utf-8
 import pilasengine
 pilas = pilasengine.iniciar()
 def iniciar_juego():
@@ -12,15 +11,16 @@ def salir_del_juego():
 
 class Juego(pilasengine.escenas.Escena):
     def iniciar(self):
-        pilas.fondo.Noche()    
+        pilas.fondos.Tarde()   
 
 class Instrucciones(pilasengine.escenas.Escena):
     def iniciar(self):
         pilas.escenas.Normal()
-        pilas.fondo.Noche()
+        pilas.fondos.Tarde()
 
 pilas.escenas.vincular(Juego)
 pilas.escenas.vincular(Instrucciones)
+
 MenuPrincipal = pilas.fondos.Fondo()
 MenuPrincipal.imagen = pilas.imagenes.cargar("fondomenu.png")
 pilas.actores.Menu([('Iniciar juego', iniciar_juego),('Como jugar', como_jugar),('salir', salir_del_juego),])
